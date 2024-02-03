@@ -1,0 +1,104 @@
+{
+  "superheroes": [
+    {
+      "id": "1",
+      "name": "Super",
+      "alterEgo": "man"
+    },
+    {
+      "id": "2",
+      "name": "sup",
+      "alterEgo": "er"
+    },
+    {
+      "id": "3",
+      "name": "wanda",
+      "alterEgo": "guys"
+    },
+    {
+      "id": "4",
+      "name": "ip-man",
+      "alterEgo": "WingChun"
+    }
+  ],
+  "friends": [
+    {
+      "id": "1",
+      "name": "Chandler Bing"
+    },
+    {
+      "id": "2",
+      "name": "Joey Tribbiani"
+    },
+    {
+      "id": "3",
+      "name": "Rachel Green"
+    }
+  ],
+  "users": [
+    {
+      "id": "vishwas@example.com",
+      "channelId": "codevolution"
+    }
+  ],
+  "channels": [
+    {
+      "id": "codevolution",
+      "courses": [
+        "react",
+        "vue",
+        "angular"
+      ]
+    }
+  ],
+  "colors": [
+    {
+      "id": "1",
+      "label": "red"
+    },
+    {
+      "id": "2",
+      "label": "blue"
+    },
+    {
+      "id": "3",
+      "label": "green"
+    },
+    {
+      "id": "4",
+      "label": "yellow"
+    },
+    {
+      "id": "5",
+      "label": "black"
+    },
+    {
+      "id": "6",
+      "label": "white"
+    },
+    {
+      "id": "7",
+      "label": "orange"
+    },
+    {
+      "id": "8",
+      "label": "purple"
+    },
+    {
+      "id": "9",
+      "label": "gpurple"
+    },
+    {
+      "id": "10",
+      "label": "apurple"
+    },
+    {
+      "id": "11",
+      "label": "bpurple"
+    },
+    {
+      "id": "12",
+      "label": "cpurple"
+    }
+  ]
+}

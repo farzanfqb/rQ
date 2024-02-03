@@ -1,0 +1,22 @@
+{
+  "/api/superheroes": {
+    "GET": {
+      "action": "db.superheroes"
+    },
+    "POST": {
+      "action": "db.superheroes.push(req.body)",
+      "path": "/api/superheroes"
+    }
+  },
+  "/api/superheroes/:id": {
+    "GET": {
+      "action": "db.superheroes.find(data => data.id == :id)"
+    },
+    "PUT": {
+      "action": "db.superheroes.find(data => data.id == :id).completed = true"
+    },
+    "DELETE": {
+      "action": "db.superheroes = db.superheroes.filter(data => data.id != :id)"
+    }
+  }
+}
