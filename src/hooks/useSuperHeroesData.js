@@ -11,7 +11,7 @@ export const useSuperHeroesData = (onSuccess, onError) => {
     //queryFn: () => axios.get('http://localhost:4000/superheroes')
     queryFn: fetchSuperHeroes,
     gcTime: 50000,  // 5min default if no observer for queryKey , its garbage collected
-    staleTime: 1, //0ms by defaut i.e for every cache fetch background check for change is performed
+    staleTime: 60 * 1000, //0ms by defaut i.e for every cache fetch background check for change is performed
     // enabled: false,    //but it will not update automatically if invalidated
     onSuccess: onSuccess,
     onError: onError,

@@ -11,25 +11,50 @@ export const useSuperHeroData = (heroId) => {
     queryKey: ["super-hero", heroId],
     // queryFn: () => fetchSuperHero    //it automatically gets 
     queryFn: () => fetchSuperHero(heroId),
-    initialData: {
-      "id": "1",
-      "name": "Super",
-      "alterEgo": "man"
+    initialData: () => {
+      const prevQuery = queryClient.getQueryData(['super-heroes'])
+      const heroData = prevQuery?.data?.find(hero => hero.id === parseInt(heroId))
+      console.log(prevQuery.data);   //array of objects
+      console.log(heroData);         ///////this is problem
+      prevQuery.data = { heroData }
+      //  return prevQuery
     }
-    // console.log(queryClient.getQueryData(['super-heroes'])?.data);
-    //  return queryClient.getQueryData(['super-heroes'])?.data.find(hero => hero.id === parseInt(heroId))
-    //}
     // initialData: () => {
     //     const hero = queryClient.getQueryData(["super-heroes"])?.data?.find(hero => hero.id === parseInt(heroId))
     //     if (hero) {
     //       return {
-    //         data: hero //return an object whose property is set to hero because in rqsuperhero page we access object data.data.name not array
+    //         data: hero //return an object whose data property is set to hero because in rqsuperhero page we access object data.data.name not array
     //       }
     //     } else {
     //       return undefined // if initial data is undefined rq will save us from runtime error
     //     }
     //   }
     // })
+    /**                      chat */
+    /** queryKey: ["super-hero", heroId],
+    queryFn: () => fetchSuperHero(heroId),
+    initialData: async () => {
+      try {
+        const superheroesData = await queryClient.fetchQuery(['super-heroes']); // Fetch the data from the cache
+        const superhero = superheroesData?.find(hero => hero && hero.id === parseInt(heroId));
+        
+        // Return the query object with the expected structure
+        return {
+          data: superhero || null,
+          status: superheroesData ? 'success' : 'error',
+          error: null, // or handle errors appropriately
+        };
+      } catch (error) {
+        console.error('Error fetching initial data:', error);
+
+        // Return the query object with error status
+        return {
+          data: null,
+          status: 'error',
+          error: error.message,
+        };
+      }
+    }, */
   })
 }
 const updateHero = (heroId, updatedHero) => {

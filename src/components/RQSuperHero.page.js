@@ -11,7 +11,7 @@ export const RQSuperHeroPage = () => {
     setShowUpdate(true);
   }
   const { isLoading, data, isError, error } = useSuperHeroData(heroId)
-  // console.log('dara', data, useSuperHeroData(heroId));
+  console.log(data);     //data.data is object
   // if (isLoading) {
   //   return <h2> Loading...</h2>
   // }
