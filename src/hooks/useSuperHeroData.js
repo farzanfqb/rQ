@@ -13,11 +13,12 @@ export const useSuperHeroData = (heroId) => {
     queryFn: () => fetchSuperHero(heroId),
     initialData: () => {
       const prevQuery = queryClient.getQueryData(['super-heroes'])
-      const heroData = prevQuery?.data?.find(hero => hero.id === parseInt(heroId))
-      console.log(prevQuery.data);   //array of objects
-      console.log(heroData);         ///////this is problem
-      prevQuery.data = { heroData }
-      //  return prevQuery
+
+      if (prevQuery) {
+        const heroData = prevQuery?.data?.find(hero => hero.id === heroId)
+        console.log(heroData);
+        return { data: heroData }
+      } else return undefined
     }
     // initialData: () => {
     //     const hero = queryClient.getQueryData(["super-heroes"])?.data?.find(hero => hero.id === parseInt(heroId))
@@ -46,7 +47,7 @@ export const useSuperHeroData = (heroId) => {
         };
       } catch (error) {
         console.error('Error fetching initial data:', error);
-
+ 
         // Return the query object with error status
         return {
           data: null,
